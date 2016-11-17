@@ -1,0 +1,32 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:View="clr-namespace:DomeCreator.View" mc:Ignorable="d" x:Class="DomeCreator.MainWindow"
+	Title="Dome Creator" WindowStyle="SingleBorderWindow" WindowState="Maximized" WindowStartupLocation="CenterScreen" Background="#FF202020" Icon="/DomeCreator;component/Lego-Designer.ico">
+
+    <Grid x:Name="grMain">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="564*"/>
+			<ColumnDefinition Width="150*" />
+		</Grid.ColumnDefinitions>
+        <Border x:Name="DomeView" Style="{DynamicResource BorderStyle}" Background="{DynamicResource PanelGradientBrush}" Margin="10">
+            <TabControl Margin="5" Background="{DynamicResource PanelGradientBrush}" BorderThickness="0">
+				<TabItem Header="2D View" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{DynamicResource TabItemStyle1}">
+					<View:Dome2DView DataContext="{Binding Dome2DVM}" />
+				</TabItem>
+				<TabItem Header="3D View" Style="{DynamicResource TabItemStyle1}" Margin="-2,-1,-2,-3">
+					<View:Dome3DView />
+				</TabItem>
+			</TabControl>
+		</Border>
+		<Border x:Name="Parameters" Grid.Column="1" Style="{DynamicResource BorderStyle}" Background="{DynamicResource PanelGradientBrush}" Margin="5,10,10,10">
+			<StackPanel>
+				<View:ParametersView DataContext="{Binding ParametersVM}"/>
+				<View:ColorChooser DataContext="{Binding ColorChooserVM}" Margin="0,10,0,0"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+
+</Window>

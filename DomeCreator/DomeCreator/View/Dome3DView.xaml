@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="DomeCreator.View.Dome3DView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Viewport3D x:Name="mainViewport" ClipToBounds="False" RenderOptions.EdgeMode="Aliased" RenderOptions.CachingHint="Cache" IsHitTestVisible="False">
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="Camera" Position="0,0,650" LookDirection="0, 0, -650" />
+            </Viewport3D.Camera>
+            <!-- Lights -->
+            <ModelUIElement3D>
+                <Model3DGroup>
+                    <AmbientLight Color="#404040" />
+                    <DirectionalLight x:Name="Headlight1" Color="White"  Direction="0,0, 650" />
+                    <!--<DirectionalLight x:Name="Headlight2" Color="White"  Direction="0,0, -650" />-->
+                </Model3DGroup>
+            </ModelUIElement3D>
+        </Viewport3D>
+        <Border Name="CaptureBorder" Background="Transparent" Grid.Row="0" Grid.Column="0" />
+
+    </Grid>
+</UserControl>

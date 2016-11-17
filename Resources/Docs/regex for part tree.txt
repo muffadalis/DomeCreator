@@ -1,0 +1,1 @@
+^(Plate\b)(?!.*?\bwith\b)(?=.*?\bwithout\b).*(corner\W)$
